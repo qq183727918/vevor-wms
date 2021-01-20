@@ -12,7 +12,7 @@ from setting.config.config import wms_config
 from setting.config.config import wms_headers
 
 
-def Get_request(path, payload, querystring):
+def get_request(path, payload, querystring):
     # 地址URL
     wms_url = wms_config()
 

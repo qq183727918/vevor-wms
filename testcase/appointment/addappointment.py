@@ -16,7 +16,7 @@ class Appointment:
 
     def __init__(self):
         """
-        预约新增，预约数据查询接口
+        预约新增，提交，时间，时间段，剩余产能
         :return
         """
 

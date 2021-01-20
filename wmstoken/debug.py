@@ -8,7 +8,7 @@ _*_ coding: UTF-8 _*_
 """
 token = 'b0a64dba-0390-4592-858a-2e0fa4dbb65d'
 
-with open('/token.txt', 'w')as f:
+with open('./token.txt', 'a')as f:
     f.write(token)
 
 

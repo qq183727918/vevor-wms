@@ -34,6 +34,7 @@ def auth_url():
 
     return url
 
+
 def preProduction_url():
     """
     预生产环境
@@ -69,7 +70,7 @@ def responseCode_service():
     服务存在问题
     :return:
     """
-    responseCode = [401, 500, 530, 501, 110, 404, 403, 304001]
+    responseCode = [401, 500, 530, 501, 110, 404, 403, 304001, 305003]
 
     return responseCode
 

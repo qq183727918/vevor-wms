@@ -17,13 +17,13 @@ class Warehouse:
 
     def __init__(self):
         """
-        预约新增，预约数据查询接口
+        预约新增页面，预约数据查询接口
         :return
         """
 
     @staticmethod
     def test_select_warehouse():
-        path = '/api/wms-inbound-orders-service/controller-overseasInboundOrderAppointment/front/getAddList'
+        path = '/wms-inbound-orders-service/controller-overseasInboundOrderAppointment/front/getAddList'
         querystring = {
             "currentPage": 1,
             "pageSize": 10

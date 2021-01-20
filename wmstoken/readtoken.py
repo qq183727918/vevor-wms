@@ -9,7 +9,6 @@ def read():
     with open(r'D:\Tools\vevor\vevor-wms\wmstoken\token.txt', 'r')as f:
         token = f.read()
 
-    print(token)
     return token
 
 

@@ -40,14 +40,7 @@ class Reservation:
 
         re = response.json()
 
-        code = re['code']
-
-        responseCode = judgmentFailure(code)
-
-        if responseCode is not responseCode_two():
-            self.test_reservation()
-        else:
-            pprint.pprint(re)
+        pprint.pprint(re)
 
 
 if __name__ == '__main__':
