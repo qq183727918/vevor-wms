@@ -7,6 +7,8 @@
 import pprint
 import requests
 
+from config.wms_params import debug_url
+
 
 def GainToken():
     querystring = {
@@ -17,7 +19,7 @@ def GainToken():
         "type": "account"
     }
 
-    url = "http://wms.test.vevor.net/api/wms-authorization-service/controller-authLoginController/login?tenantId=admin&username=murphy&password=6088b9bde6214806b775b931b817565a&grant_type=password&type=account"
+    url = f"{debug_url}/api/wms-authorization-service/controller-authLoginController/login?tenantId=admin&username=murphy&password=6088b9bde6214806b775b931b817565a&grant_type=password&type=account"
 
     payload = ""
 
@@ -31,12 +33,16 @@ def GainToken():
 
     re = response.json()
 
-    pprint.pprint(re)
+    # pprint.pprint(re)
 
     access_token = re['data']['access_token']
 
-    with open('./token.txt', 'w')as f:
+    code = re['code']
+
+    with open(r'D:\Tools\vevor\vevor-wms\wmstoken\token.txt', 'w')as f:
         f.write(access_token)
+
+    return code
 
 
 if __name__ == '__main__':

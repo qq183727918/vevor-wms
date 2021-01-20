@@ -6,9 +6,10 @@
 # @Software : PyCharm
 
 def read():
-    with open('./token.txt', 'r')as f:
+    with open(r'D:\Tools\vevor\vevor-wms\wmstoken\token.txt', 'r')as f:
         token = f.read()
-        print(token)
+
+    print(token)
     return token
 
 
