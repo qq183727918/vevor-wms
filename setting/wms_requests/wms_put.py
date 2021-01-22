@@ -24,7 +24,7 @@ def put_request(path, payload, querystring):
     head = wms_headers()
 
     # 发送请求
-    response = requests.put(url, data=payload, headers=head, params=querystring)
+    response = requests.put(url, data=payload, headers=head, params=querystring, verify=False)
 
     re = response.json()
 
