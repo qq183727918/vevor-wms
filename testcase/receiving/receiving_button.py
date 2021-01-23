@@ -10,7 +10,7 @@ _*_ coding: UTF-8 _*_
 
 import pprint
 
-from setting.wms_requests.wms_put import put_request
+from setting.wms_requests.wms_data_put import put_request
 
 
 class Receiving:
@@ -22,8 +22,8 @@ class Receiving:
         """
 
     @staticmethod
-    def test_receiving_button():
-        path = '/wms-inbound-orders-service/controller-overseasInboundSignOrderSign/front/sign'
+    def receiving_button():
+        path = '/api/wms-inbound-orders-service/controller-overseasInboundSignOrderSign/front/sign'
         payload = ""
         querystring = {
             "ids": 2
@@ -35,4 +35,4 @@ class Receiving:
 
 if __name__ == '__main__':
     wms = Receiving()
-    wms.test_receiving_button()
+    wms.receiving_button()

@@ -20,7 +20,7 @@ def debug_url():
     调试地址
     :return:
     """
-    url = 'http://192.168.0.138:6080'
+    url = 'http://192.168.0.138:1888'
 
     return url
 

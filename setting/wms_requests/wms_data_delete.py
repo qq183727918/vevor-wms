@@ -29,6 +29,6 @@ def delete_request(path, payload, querystring):
 
     re = response.json()
 
-    pprint.pprint(re)
+    # pprint.pprint(re)
 
     return re
