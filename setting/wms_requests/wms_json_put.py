@@ -1,9 +1,12 @@
-# _*_ coding: UTF-8 _*_
-# @Time     : 2020/10/19 20:25
-# @Author   : LiuXiaoQiang
-# @Site     : http:www.cdtest.cn/
-# @File     : lxq_put.py
-# @Software : PyCharm
+"""
+_*_ coding: UTF-8 _*_
+@Time      : 2021/1/23 16:42
+@Author    : LiuXiaoQiang
+@Site      : https://github.com/qq183727918
+@File      : wms_json_put.py
+@Software  : PyCharm
+"""
+
 
 import requests
 
@@ -23,7 +26,7 @@ def put_request(path, payload, querystring):
     head = wms_headers()
 
     # 发送请求
-    response = requests.put(url, data=payload, headers=head, params=querystring, verify=False)
+    response = requests.put(url, json=payload, headers=head, params=querystring, verify=False)
 
     re = response.json()
 

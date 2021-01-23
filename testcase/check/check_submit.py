@@ -1,9 +1,9 @@
 """
 _*_ coding: UTF-8 _*_
-@Time      : 2021/1/23 15:12
+@Time      : 2021/1/23 16:38
 @Author    : LiuXiaoQiang
 @Site      : https://github.com/qq183727918
-@File      : appointment_detail.py
+@File      : check_submit.py
 @Software  : PyCharm
 """
 
@@ -12,24 +12,24 @@ import pprint
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Appointment_detail:
+class Check_shippingNumberSKU_select:
 
     def __init__(self):
         """
-        预约详情页面
+        清点-提交
         :return
         """
 
     @staticmethod
-    def appointment_detail():
-        path = '/api/wms-inbound-orders-service/controller-overseasInboundOrderAppointment/front/getUpdateList'
+    def check_shippingNumberSKU_select():
+        path = '/api/wms-inbound-orders-service/controller-dischargeService/front/getDischargeList'
 
         payload = ""
 
         querystring = {
             "currentPage": 1,
             "pageSize": 10,
-            "id": 8
+            "seaChestNo": "HGH0085"
         }
 
         response = get_request(path=path, payload=payload, querystring=querystring)
@@ -38,5 +38,5 @@ class Appointment_detail:
 
 
 if __name__ == '__main__':
-    wms = Appointment_detail()
-    wms.appointment_detail()
+    wms = Check_shippingNumberSKU_select()
+    wms.check_shippingNumberSKU_select()

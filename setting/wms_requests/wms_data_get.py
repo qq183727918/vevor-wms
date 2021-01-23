@@ -4,7 +4,6 @@
 # @Site     : http:www.cdtest.cn/
 # @File     : lxq_get.py
 # @Software : PyCharm
-import pprint
 
 import requests
 

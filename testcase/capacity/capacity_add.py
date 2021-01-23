@@ -9,7 +9,7 @@ _*_ coding: UTF-8 _*_
 
 import pprint
 
-from setting.wms_requests.wms_data_post import post_request
+from setting.wms_requests.wms_json_post import post_request
 
 
 class Capacity_add:
@@ -24,7 +24,12 @@ class Capacity_add:
     def capacity_add():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundCapacity/front/updateCapacity'
 
-        payload = '{"capacityDictKey": 17,"capacityTime": "2021-01-23","maxNum": "152","warehouseId": 1}'
+        payload = {
+            "capacityDictKey": 17,
+            "capacityTime": "2021-01-23",
+            "maxNum": "152",
+            "warehouseId": 1
+        }
 
         querystring = ""
 

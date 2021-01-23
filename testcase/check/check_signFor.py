@@ -1,31 +1,31 @@
 """
 _*_ coding: UTF-8 _*_
-@Time      : 2021/1/23 14:57
+@Time      : 2021/1/23 17:39
 @Author    : LiuXiaoQiang
 @Site      : https://github.com/qq183727918
-@File      : appointment_cancel.py
+@File      : check_signFor.py
 @Software  : PyCharm
 """
+
 import pprint
 
 from setting.wms_requests.wms_json_put import put_request
 
 
-class Appointment_cancel:
+class Check_shippingNumberSKU_select:
 
     def __init__(self):
         """
-        预约取消
+        清点-拆箱
         :return
         """
 
     @staticmethod
-    def appointment_cancel():
-        path = '/api/wms-inbound-orders-service/controller-overseasInboundReservation/front/inspect'
+    def check_shippingNumberSKU_select():
+        path = '/api/wms-inbound-orders-service/controller-dischargeService/front/updateDischarge'
 
         payload = {
-            "collect": [6],
-            "status": 1
+            "seaChestNo": "hgh0085"
         }
 
         querystring = ""
@@ -36,5 +36,5 @@ class Appointment_cancel:
 
 
 if __name__ == '__main__':
-    wms = Appointment_cancel()
-    wms.appointment_cancel()
+    wms = Check_shippingNumberSKU_select()
+    wms.check_shippingNumberSKU_select()

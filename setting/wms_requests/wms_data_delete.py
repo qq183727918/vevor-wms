@@ -5,7 +5,6 @@
 # @File     : lxq_delete.py
 # @Software : PyCharm
 
-import pprint
 
 import requests
 
