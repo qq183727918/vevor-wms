@@ -5,45 +5,56 @@
 # @File     : gaintoken.py
 # @Software : PyCharm
 import pprint
+
 import requests
 
-from config.wms_params import debug_url
+from config.wms_params import test_url
 
 
-def GainToken():
-    querystring = {
-        "tenantId": "admin",
-        "username": "murphy",
-        "password": "6088b9bde6214806b775b931b817565a",
-        "grant_type": "password",
-        "type": "account"
-    }
+class GainToken:
+    def __init__(self):
+        """
+        刷新token
+        """
+        self.wms = test_url()
 
-    url = f"{debug_url}/api/wms-authorization-service/controller-authLoginController/login?tenantId=admin&username=murphy&password=6088b9bde6214806b775b931b817565a&grant_type=password&type=account"
+    def gainToken(self):
+        querystring = {
+            "tenantId": "admin",
+            "username": "murphy",
+            "password": "6088b9bde6214806b775b931b817565a",
+            "grant_type": "password",
+            "type": "account"
+        }
 
-    payload = ""
+        url = f"{self.wms}/api/wms-authorization-service/controller-authLoginController/login?tenantId=admin&username=murphy&password=6088b9bde6214806b775b931b817565a&grant_type=password&type=account"
 
-    headers = {
-        "Content-Type": "application/json",
-        "Set-Cookie": "SESSION=NjE4MWQ2YmItNzhjMC00ZmIzLWE3ZTEtYjIzOTI4Y2VlZTg2; Path=/; HttpOnly; SameSite=Lax",
-        "Authorization": "Basic Y2FjNDI1MTEtMzc4ZC00MmQ0LTk4ZWUtYjdmM2U0MDU1NjE2OjE1MGU5OTI1LWUxYzctNGZlZi05ZmQ4LWIwYzU5Mzg3ZmMzMQ=="
-    }
+        payload = ""
 
-    response = requests.post(url, data=payload, headers=headers, params=querystring)
+        headers = {
+            "Content-Type": "application/json",
+            "Set-Cookie": "SESSION=NTBjZTRkNGItYjk5Yy00MmYxLWE2N2MtMTAwNTE3YzFlYjkw; Path=/; HttpOnly; SameSite=Lax",
+            "Authorization": "Basic Y2FjNDI1MTEtMzc4ZC00MmQ0LTk4ZWUtYjdmM2U0MDU1NjE2OjE1MGU5OTI1LWUxYzctNGZlZi05ZmQ4LWIwYzU5Mzg3ZmMzMQ==",
+            "Cookie": "SESSION=ODgxOTM4MjgtMThjYi00ZjkyLTgyNjUtOWM1YmI2MGRhNmJl; isSupperTenant=true; expiresIn=3530606; requestTime=1611455726511",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36"
+        }
 
-    re = response.json()
+        response = requests.post(url, json=payload, headers=headers, params=querystring, verify=False)
 
-    # pprint.pprint(re)
+        re = response.json()
 
-    access_token = re['data']['access_token']
+        pprint.pprint(re)
 
-    code = re['code']
+        access_token = re['data']['access_token']
 
-    with open(r'D:\Tools\vevor\vevor-wms\wmstoken\token.txt', 'w')as f:
-        f.write(access_token)
+        code = re['code']
 
-    return code
+        with open(r'D:\Tools\vevor\vevor-wms\wmstoken\token.txt', 'w')as f:
+            f.write(access_token)
+
+        return code
 
 
 if __name__ == '__main__':
-    GainToken()
+    wms = GainToken()
+    wms.gainToken()

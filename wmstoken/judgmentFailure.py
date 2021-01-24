@@ -4,7 +4,7 @@
 # @Site     : https://github.com/qq183727918
 # @File     : judgmentFailure.py
 # @Software : PyCharm
-from wmstoken.gaintoken import GainToken
+from wmstoken.gaintoken import gainToken
 
 
 def judgmentFailure(code):
@@ -13,7 +13,7 @@ def judgmentFailure(code):
         return 200
     elif code == 401:
         print('token失效,正在重新获取，请稍等...')
-        codes = GainToken()
+        codes = gainToken()
         print('token获取成功,请重试...')
         judgmentFailure(codes)
         return 401

@@ -10,7 +10,7 @@ from wmstoken.readtoken import read
 
 
 def wms_config():
-    l_config_url = debug_url()
+    l_config_url = test_url()
 
     return l_config_url
 
