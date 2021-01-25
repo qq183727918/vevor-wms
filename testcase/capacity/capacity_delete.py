@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_put import put_request
 
 
-class Capacity_delete:
+class Capacity_delete(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         产能删除
         :return
         """
 
     @staticmethod
-    def capacity_delete():
+    def test_capacity_delete():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundCapacity/front/deleteCapacity'
         payload = "[105]"
 
@@ -31,7 +31,5 @@ class Capacity_delete:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Capacity_delete()
-    wms.capacity_delete()
+    def tearDown(self) -> None:
+        pass

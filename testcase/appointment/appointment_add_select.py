@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Appointment:
+class Appointment(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         预约新增页面，预约数据查询接口
         :return
         """
 
     @staticmethod
-    def appointment_add_select():
+    def test_appointment_add_select():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundOrderAppointment/front/getAddList'
         querystring = {
             "startTime": "",
@@ -41,6 +41,5 @@ class Appointment:
         pprint.pprint(re)
 
 
-if __name__ == '__main__':
-    wms = Appointment()
-    wms.appointment_add_select()
+    def tearDown(self) -> None:
+        pass

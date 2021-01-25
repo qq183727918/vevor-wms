@@ -7,20 +7,20 @@ _*_ coding: UTF-8 _*_
 @Software  : PyCharm
 """
 import pprint
-
+import unittest
 from setting.wms_requests.wms_json_put import put_request
 
 
-class Appointment_cancel:
+class Appointment_cancel(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         预约取消
         :return
         """
 
     @staticmethod
-    def appointment_cancel():
+    def test_appointment_cancel():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundReservation/front/inspect'
 
         payload = {
@@ -34,7 +34,5 @@ class Appointment_cancel:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Appointment_cancel()
-    wms.appointment_cancel()
+    def tearDown(self) -> None:
+        pass

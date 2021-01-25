@@ -8,26 +8,25 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 import requests
 
 from wmstoken.readtoken import read
 
 
-class Warehousereceipt:
+class Warehousereceipt(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
-        预约新增，新增提交
+        入库单新增接口
         :return
         """
 
-    @staticmethod
-    def add_warehousereceipt():
+    def test_add_warehousereceipt(self):
         # 新增入库单
-        path = "http://192.168.0.138:6084/api-iOverseasInboundService/outer/create"
+        self.path = "http://192.168.0.138:6084/api-iOverseasInboundService/outer/create"
 
-        payload = {
+        self.payload = {
             "sourceWarehouse": "上海常熟中转仓",
             "targetWarehouse": "美国",
             "seaChestNo": "QA0001",
@@ -35,7 +34,7 @@ class Warehousereceipt:
             "sourceCreatedBy": "肆意",
             "sourceCreatedTime": "2021-12-23 22:59:00",
             "sourceOutTime": "2021-12-29 21:18:00",
-            "tenantId": "admin",
+            "tenantId": "lxqiang",
             "customerId": 85,
             "transType": 0,
             "operatorBy": 0,
@@ -69,19 +68,17 @@ class Warehousereceipt:
                 "weight": 6.45
             }]
         }
-        token = read()
-        querystring = {
+        self.token = read()
+        self.querystring = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {token}"
+            "Authorization": f"Bearer {self.token}"
         }
 
-        response = requests.post(url=path, json=payload, headers=querystring)
+        response = requests.post(url=self.path, json=self.payload, headers=self.querystring)
 
-        re = response.json()
+        self.re = response.json()
 
-        pprint.pprint(re)
+        pprint.pprint(self.re)
 
-
-if __name__ == '__main__':
-    wms = Warehousereceipt()
-    wms.add_warehousereceipt()
+    def tearDown(self) -> None:
+        pass

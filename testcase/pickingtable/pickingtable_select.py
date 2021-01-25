@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class PickingTable_select:
+class PickingTable_select(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         拣货任务报表查询
         :return
         """
 
     @staticmethod
-    def pickingTable_select():
+    def test_pickingTable_select():
         path = '/api/wms-outbound-orders-service/controller-overseasOutboundPickingTask/front/queryAll'
 
         payload = ""

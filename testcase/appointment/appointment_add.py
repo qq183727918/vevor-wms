@@ -8,30 +8,27 @@ _*_ coding: UTF-8 _*_
  """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_post import post_request
 
 
-class Appointment:
+class Appointment(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         预约新增，新增提交
         :return
         """
 
-    @staticmethod
-    def appointment_add():
-        path = '/api/wms-inbound-orders-service/controller-overseasInboundOrderAppointment/front/insertTime'
-        payload = "[25]"
-        querystring = {
+    def test_appointment_add(self):
+        self.path = '/api/wms-inbound-orders-service/controller-overseasInboundOrderAppointment/front/insertTime'
+        self.payload = "[25]"
+        self.querystring = {
             "capacityId": 106
         }
-        re = post_request(path=path, payload=payload, querystring=querystring)
+        re = post_request(path=self.path, payload=self.payload, querystring=self.querystring)
 
         pprint.pprint(re)
 
-
-if __name__ == '__main__':
-    wms = Appointment()
-    wms.appointment_add()
+    def tearDown(self) -> None:
+        pass

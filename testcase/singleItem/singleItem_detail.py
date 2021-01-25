@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class SingleItem_detail:
+class SingleItem_detail(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         单品拣货详情
         :return
         """
 
     @staticmethod
-    def singleItem_detail():
+    def test_singleItem_detail():
         path = '/api/wms-outbound-orders-service/controller-singleProductTaskService/front/getTaskPickDetail'
 
         payload = ""
@@ -34,7 +34,5 @@ class SingleItem_detail:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = SingleItem_detail()
-    wms.singleItem_detail()
+    def tearDown(self) -> None:
+        pass

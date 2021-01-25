@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Receiving_select:
+class Receiving_select(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         签收页面，查询
         :return
         """
 
     @staticmethod
-    def receiving_select():
+    def test_receiving_select():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundSignOrderSign/front/getList'
         payload = ""
         querystring = {
@@ -39,7 +39,5 @@ class Receiving_select:
 
         pprint.pprint(re)
 
-
-if __name__ == '__main__':
-    wms = Receiving_select()
-    wms.receiving_select()
+    def tearDown(self) -> None:
+        pass

@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Check_transportNumber_select:
+class Check_transportNumber_select(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         清点查询-运输号信息
         :return
         """
 
     @staticmethod
-    def check_transportNumber_select():
+    def test_check_transportNumber_select():
         path = '/api/wms-inbound-orders-service/controller-dischargeService/front/getDischargeTop'
 
         payload = ""
@@ -36,7 +36,5 @@ class Check_transportNumber_select:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Check_transportNumber_select()
-    wms.check_transportNumber_select()
+    def tearDown(self) -> None:
+        pass

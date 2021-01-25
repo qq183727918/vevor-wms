@@ -9,6 +9,7 @@ _*_ coding: UTF-8 _*_
 
 import pprint
 import unittest
+
 from setting.wms_requests.wms_json_put import put_request
 
 
@@ -20,8 +21,7 @@ class Check_save(unittest.TestCase):
         :return
         """
 
-    @staticmethod
-    def test_check_save():
+    def test_check_save(self):
         path = '/api/wms-inbound-orders-service/controller-dischargeService/front/dischargeSave'
 
         payload = {

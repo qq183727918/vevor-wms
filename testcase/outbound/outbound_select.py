@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Outbound_select:
+class Outbound_select(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         出库单查询
         :return
         """
 
     @staticmethod
-    def outbound_select():
+    def test_outbound_select():
         path = '/api/wms-outbound-orders-service/controller-overseasOutboundOrder/front/queryOutboundOrderList'
 
         payload = ""
@@ -40,7 +40,5 @@ class Outbound_select:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Outbound_select()
-    wms.outbound_select()
+    def tearDown(self) -> None:
+        pass

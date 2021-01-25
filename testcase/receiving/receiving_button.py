@@ -9,20 +9,20 @@ _*_ coding: UTF-8 _*_
 
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_put import put_request
 
 
-class Receiving:
+class Receiving(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         签收页面，签收按钮功能
         :return
         """
 
     @staticmethod
-    def receiving_button():
+    def test_receiving_button():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundSignOrderSign/front/sign'
         payload = ""
         querystring = {
@@ -32,7 +32,5 @@ class Receiving:
 
         pprint.pprint(re)
 
-
-if __name__ == '__main__':
-    wms = Receiving()
-    wms.receiving_button()
+    def tearDown(self) -> None:
+        pass

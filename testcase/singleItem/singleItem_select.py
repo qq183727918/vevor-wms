@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class SingleItem_select:
+class SingleItem_select(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         单品拣货查询
         :return
         """
 
     @staticmethod
-    def singleItem_select():
+    def test_singleItem_select():
         path = '/api/wms-outbound-orders-service/controller-singleProductTaskService/front/getSingleList'
 
         payload = ""
@@ -40,8 +40,5 @@ class SingleItem_select:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = SingleItem_select()
-    wms.singleItem_select()
-
+    def tearDown(self) -> None:
+        pass

@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_json_post import post_request
 
 
-class Capacity_add:
+class Capacity_add(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         产能新增
         :return
         """
 
     @staticmethod
-    def capacity_add():
+    def test_capacity_add():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundCapacity/front/updateCapacity'
 
         payload = {
@@ -38,6 +38,6 @@ class Capacity_add:
         pprint.pprint(response)
 
 
-if __name__ == '__main__':
-    wms = Capacity_add()
-    wms.capacity_add()
+    def tearDown(self) -> None:
+        pass
+

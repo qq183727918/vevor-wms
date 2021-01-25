@@ -7,20 +7,20 @@ _*_ coding: UTF-8 _*_
 @Software  : PyCharm
 """
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Capacity_select_week:
+class Capacity_select_week(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         周产能查询
         :return
         """
 
     @staticmethod
-    def capacity_select_week():
+    def test_capacity_select_week():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundCapacity/front/queryCapacityListByDay'
 
         payload = ""
@@ -35,7 +35,5 @@ class Capacity_select_week:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Capacity_select_week()
-    wms.capacity_select_week()
+    def tearDown(self) -> None:
+        pass

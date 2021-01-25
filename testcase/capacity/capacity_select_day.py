@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Capacity_select_day:
+class Capacity_select_day(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         天产能查询
         :return
         """
 
     @staticmethod
-    def capacity_select_day():
+    def test_capacity_select_day():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundCapacity/front/queryCapacityListByDay'
 
         payload = ""
@@ -36,7 +36,5 @@ class Capacity_select_day:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Capacity_select_day()
-    wms.capacity_select_day()
+    def tearDown(self) -> None:
+        pass

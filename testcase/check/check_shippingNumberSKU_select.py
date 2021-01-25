@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Check_shippingNumberSKU_select:
+class Check_shippingNumberSKU_select(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         清点查询-运输号对应 SKU信息查询
         :return
         """
 
     @staticmethod
-    def check_shippingNumberSKU_select():
+    def test_check_shippingNumberSKU_select():
         path = '/api/wms-inbound-orders-service/controller-dischargeService/front/getDischargeList'
 
         payload = ""
@@ -36,7 +36,5 @@ class Check_shippingNumberSKU_select:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Check_shippingNumberSKU_select()
-    wms.check_shippingNumberSKU_select()
+    def tearDown(self) -> None:
+        pass

@@ -8,23 +8,23 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
+import unittest
 
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Appointment:
+class Appointment(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         入库单页面查询
         :return
         """
 
-    @staticmethod
-    def appointment_add():
-        path = '/api/wms-inbound-orders-service/controller-overseasInboundOrderItems/front/queryInboundOrderList'
-        payload = ""
-        querystring = {
+    def test_appointment_add(self):
+        self.path = '/api/wms-inbound-orders-service/controller-overseasInboundOrderItems/front/queryInboundOrderList'
+        self.payload = ""
+        self.querystring = {
             "currentPage": 1,
             "pageSize": 10,
             "orderSn": "",
@@ -35,11 +35,9 @@ class Appointment:
             "createdStartTime": "",
             "createdEndTime": ""
         }
-        re = get_request(path=path, payload=payload, querystring=querystring)
+        self.re = get_request(path=self.path, payload=self.payload, querystring=self.querystring)
 
-        pprint.pprint(re)
+        pprint.pprint(self.re)
 
-
-if __name__ == '__main__':
-    wms = Appointment()
-    wms.appointment_add()
+    def tearDown(self) -> None:
+        pass

@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Appointment_detail:
+class Appointment_detail(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         预约详情页面
         :return
         """
 
     @staticmethod
-    def appointment_detail():
+    def test_appointment_detail():
         path = '/api/wms-inbound-orders-service/controller-overseasInboundOrderAppointment/front/getUpdateList'
 
         payload = ""
@@ -36,7 +36,5 @@ class Appointment_detail:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Appointment_detail()
-    wms.appointment_detail()
+    def tearDown(self) -> None:
+        pass

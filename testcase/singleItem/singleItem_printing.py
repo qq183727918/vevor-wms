@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_put import put_request
 
 
-class SingleItem_printing:
+class SingleItem_printing(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         单品拣货打印
         :return
         """
 
     @staticmethod
-    def singleItem_printing():
+    def test_singleItem_printing():
         path = '/api/wms-outbound-orders-service/controller-singleProductTaskService/front/printing'
 
         payload = "[133]"
@@ -33,7 +33,5 @@ class SingleItem_printing:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = SingleItem_printing()
-    wms.singleItem_printing()
+    def tearDown(self) -> None:
+        pass

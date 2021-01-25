@@ -8,20 +8,20 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_data_get import get_request
 
 
-class Outbound_detail:
+class Outbound_detail(unittest.TestCase):
 
-    def __init__(self):
+    def setUp(self) -> None:
         """
         出库单详情
         :return
         """
 
     @staticmethod
-    def outbound_detail():
+    def test_outbound_detail():
         path = '/api/wms-outbound-orders-service/controller-overseasOutboundOrder/front/queryOutboundOrderById'
 
         payload = ""
@@ -34,7 +34,5 @@ class Outbound_detail:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Outbound_detail()
-    wms.outbound_detail()
+    def tearDown(self) -> None:
+        pass

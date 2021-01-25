@@ -8,13 +8,13 @@ _*_ coding: UTF-8 _*_
 """
 
 import pprint
-
+import unittest
 from setting.wms_requests.wms_json_put import put_request
 
 
-class Check_shippingNumberSKU_select:
+class Check_shippingNumberSKU_select(unittest.TestCase):
 
-    def __init__(self):
+    def test_setUp(self) -> None:
         """
         清点-拆箱
         :return
@@ -34,7 +34,5 @@ class Check_shippingNumberSKU_select:
 
         pprint.pprint(response)
 
-
-if __name__ == '__main__':
-    wms = Check_shippingNumberSKU_select()
-    wms.check_shippingNumberSKU_select()
+    def tearDown(self) -> None:
+        pass
