@@ -34,7 +34,7 @@ class Warehousereceipt(unittest.TestCase):
             "sourceCreatedBy": "肆意",
             "sourceCreatedTime": "2021-12-23 22:59:00",
             "sourceOutTime": "2021-12-29 21:18:00",
-            "tenantId": "lxqiang",
+            "tenantId": "admin",
             "customerId": 85,
             "transType": 0,
             "operatorBy": 0,
